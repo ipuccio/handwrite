@@ -56,6 +56,28 @@ Set the following environment variables for production:
 - `FLASK_ENV`: Set to `production` for production deployments
 - `MAX_CONTENT_LENGTH`: Maximum file upload size in bytes (default: 16MB)
 
+### Vercel Deployment
+
+The application includes Vercel configuration for easy serverless deployment:
+
+1. Install Vercel CLI:
+   ```bash
+   npm install -g vercel
+   ```
+
+2. Deploy to Vercel:
+   ```bash
+   vercel
+   ```
+
+3. Set environment variables in Vercel dashboard:
+   - `SECRET_KEY`: A secure random string for Flask session management
+   - `FLASK_ENV`: Set to `production`
+
+The `api/index.py` file serves as the entrypoint for Vercel, and `vercel.json` contains the necessary configuration.
+
+**Note**: Vercel's serverless functions have limitations on execution time and package size. For complex font generation tasks, consider using traditional hosting or Heroku instead.
+
 ### Heroku Deployment
 
 The application includes a `Procfile` for easy deployment to Heroku:
@@ -135,6 +157,8 @@ Install on macOS:
 ```bash
 brew install fontforge potrace
 ```
+
+**Vercel Note**: Vercel's serverless environment may not support fontforge and potrace natively. You may need to use custom build steps or consider alternative hosting for full functionality. For production deployments requiring these dependencies, Heroku or Docker-based hosting is recommended.
 
 ### File Upload Considerations
 
