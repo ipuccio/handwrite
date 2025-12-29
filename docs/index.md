@@ -28,3 +28,10 @@ Handwrite makes typing written assignments efficient, convenient and authentic.
 Handwrite generates a custom font based on your handwriting sample, which can easily be used in text editors and word processors like Microsoft Word & Libre Office Word!
 
 Handwrite is also helpful for those with dysgraphia.
+
+## Usage Options
+
+- **Web Application**: User-friendly interface for uploading handwriting samples and generating fonts
+- **Command-Line Tool**: Direct CLI access for advanced users and automation
+
+Get started with the [Installation Guide](installation.md) or jump to [Usage Instructions](usage.md).

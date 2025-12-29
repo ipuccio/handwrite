@@ -32,6 +32,26 @@ Handwrite is also helpful for those with dysgraphia.
 
 You can get started with Handwrite [here](https://builtree.github.io/handwrite/).
 
+## Web Application
+
+Handwrite includes a Flask web application that provides a user-friendly interface for generating custom fonts. You can run it locally or deploy it to a production server.
+
+### Quick Start (Web App)
+
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Run the web application:
+   ```bash
+   python webapp/app.py
+   ```
+
+3. Access the application at `http://localhost:5000`
+
+For production deployment instructions, see the [Deployment Documentation](https://builtree.github.io/handwrite/deployment/).
+
 ## Sample
 
 You just need to fill up a form:

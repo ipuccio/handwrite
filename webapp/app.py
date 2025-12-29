@@ -10,13 +10,22 @@ from werkzeug.utils import secure_filename
 
 from handwrite.cli import converters
 
+# Load environment variables from .env file if python-dotenv is available
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-key-change-in-production")
 
 # Configuration
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
-app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB max file size
+app.config["MAX_CONTENT_LENGTH"] = int(
+    os.environ.get("MAX_CONTENT_LENGTH", 16 * 1024 * 1024)
+)  # Default: 16MB max file size
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
