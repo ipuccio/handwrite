@@ -1,5 +1,5 @@
 """WSGI entry point for production deployment."""
 from webapp.app import app
 
-if __name__ == "__main__":
-    app.run()
+# Application is ready to be served by WSGI server
+# Usage: gunicorn wsgi:app

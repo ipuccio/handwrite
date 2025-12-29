@@ -100,7 +100,6 @@ COPY . .
 
 # Set environment variables
 ENV FLASK_ENV=production
-ENV SECRET_KEY=change-me-in-production
 
 # Expose port
 EXPOSE 5000
@@ -109,11 +108,13 @@ EXPOSE 5000
 CMD ["gunicorn", "wsgi:app", "--bind", "0.0.0.0:5000", "--workers", "4"]
 ```
 
-Build and run:
+Build and run with environment variables:
 ```bash
 docker build -t handwrite-webapp .
 docker run -p 5000:5000 -e SECRET_KEY=your-secret-key handwrite-webapp
 ```
+
+**Important**: Always pass `SECRET_KEY` as a runtime environment variable. Never hardcode secrets in the Dockerfile.
 
 ## Platform-Specific Notes
 
