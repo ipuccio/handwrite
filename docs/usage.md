@@ -1,5 +1,31 @@
 # Getting Started with Handwrite!
 
+Handwrite can be used in two ways: via the web application or via the command-line interface.
+
+## Method 1: Web Application (Recommended for Beginners)
+
+### Running the Web App Locally
+
+1. Install dependencies:
+   ```console
+   pip install -r requirements.txt
+   ```
+
+2. Run the application:
+   ```console
+   python webapp/app.py
+   ```
+
+3. Open your browser to `http://localhost:5000`
+
+4. Download the [sample form](https://github.com/builtree/handwrite/raw/main/handwrite_sample.pdf), fill it with your handwriting, and upload it through the web interface.
+
+5. Download your generated font and install it on your system!
+
+For production deployment, see the [Deployment Guide](deployment.md).
+
+## Method 2: Command-Line Interface
+
 ## Creating your Handwritten Sample
 
 1. Take a printout of the [sample form](https://github.com/builtree/handwrite/raw/main/handwrite_sample.pdf).
@@ -42,6 +68,10 @@ Your form should look like this:
         </img>
 </p>
 
-## Configuring
+## Configuration
 
-TO DO
+You can customize font generation by passing a config file with the `--config [CONFIG FILE]` argument.
+
+If no config file is provided, the [default config file](https://github.com/builtree/handwrite/blob/main/handwrite/default.json) is used.
+
+For more details on the converter API and advanced configuration, see the [API Documentation](api/sheettopng.md).

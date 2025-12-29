@@ -1,6 +1,5 @@
 include handwrite/default.json
 recursive-include webapp/templates *
-recursive-include webapp/static *
 include requirements.txt
 include wsgi.py
 include Procfile

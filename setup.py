@@ -34,7 +34,7 @@ setuptools.setup(
     include_package_data=True,
     package_data={
         "handwrite": ["default.json"],
-        "webapp": ["templates/*", "static/*"],
+        "webapp": ["templates/*"],
     },
     classifiers=[
         "Programming Language :: Python :: 3",
