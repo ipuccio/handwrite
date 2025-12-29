@@ -1,4 +1,5 @@
 """Flask web application for Handwrite font generation."""
+import logging
 import os
 import tempfile
 import shutil
@@ -11,11 +12,15 @@ from handwrite.cli import converters
 
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", os.urandom(24))
+app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-key-change-in-production")
 
 # Configuration
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
-MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max file size
+app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB max file size
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 def allowed_file(filename):
@@ -86,7 +91,8 @@ def generate_font():
         )
 
     except Exception as e:
-        flash(f"An error occurred: {str(e)}")
+        logger.exception("Font generation failed")
+        flash("An error occurred during font generation. Please try again with a valid handwriting sample.")
         return redirect(url_for("index"))
 
     finally:
