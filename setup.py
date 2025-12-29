@@ -23,12 +23,19 @@ setuptools.setup(
             "pymdown-extensions==8.2",
             "mkdocstrings>=0.16.1",
             "pytkdocs[numpy-style]",
-        ]
+        ],
+        "webapp": [
+            "gunicorn>=20.1.0",
+        ],
     },
     entry_points={
         "console_scripts": ["handwrite = handwrite.cli:main"],
     },
     include_package_data=True,
+    package_data={
+        "handwrite": ["default.json"],
+        "webapp": ["templates/*", "static/*"],
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
