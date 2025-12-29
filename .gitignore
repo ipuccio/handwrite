@@ -134,3 +134,6 @@ dmypy.json
 
 # IDE
 .vscode
+
+# Web app uploads
+webapp/uploads/
